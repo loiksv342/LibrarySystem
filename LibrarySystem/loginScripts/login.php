@@ -15,10 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($res) {
             if (mysqli_num_rows($res) > 0) {
                 $user = mysqli_fetch_assoc($res);
-                // Używamy password_verify, aby sprawdzić hasło
                 if (password_verify($password, $user['Password'])) {
                     session_regenerate_id(true);
-                    $_SESSION['user'] = $user['FirstName']; // Użyj nazwy lub identyfikatora użytkownika, a nie hasła
+                    $_SESSION['user'] = $user['FirstName']; 
                     $_SESSION['card_number'] = $card_number;
                     $_SESSION['is_employee'] = (substr($card_number, 0, 2) === "00");
                     $redirectPage = $_SESSION['is_employee'] ? 'employee_dashboard.php' : 'reader_dashboard.php';

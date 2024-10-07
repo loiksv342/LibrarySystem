@@ -63,12 +63,11 @@ if (!isset($_SESSION['user'])) {
         </a>
     </div>
 
-    <!-- Sekcja z najnowszymi książkami -->
     <div class="latest-books mt-4">
         <h4 class="text-center">5 najnowszych książek w naszej bibliotece</h4>
         <div class="row">
             <?php
-            $query = "SELECT Title, Page_Count, Published_Year FROM Books ORDER BY Published_Year DESC LIMIT 5"; // Poprawione zapytanie
+            $query = "SELECT Title, Page_Count, Published_Year FROM Books ORDER BY Published_Year DESC LIMIT 5"; 
             $res = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($res) > 0) {
@@ -84,6 +83,7 @@ if (!isset($_SESSION['user'])) {
             } else {
                 echo "<p class='text-center'>Brak danych</p>";
             }
+            mysqli_close($conn);
             ?>
         </div>
     </div>

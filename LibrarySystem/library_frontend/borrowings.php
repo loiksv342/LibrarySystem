@@ -10,25 +10,20 @@ if (!isset($_SESSION['user'])) {
 $link = isset($_SESSION['is_employee']) && $_SESSION['is_employee'] ? '../library_frontend/employee_dashboard.php' : '../library_frontend/reader_dashboard.php';
 
 
-// Handle POST requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Borrow a book
     $title = isset($_POST['title']) ? trim($_POST['title']) : '';
 
     if (!empty($title)) {
-        // Query the database to check if the book exists and its status
         $q2 = "SELECT Status FROM books WHERE Title = '$title'";
         $res2 = mysqli_query($conn, $q2);
 
         if($res2 && mysqli_num_rows($res2) > 0) {
             $row = mysqli_fetch_assoc($res2);
 
-            // Check if the book is already borrowed
             if($row['Status'] == 'Wypożyczona'){
-                $_SESSION['message'] = "<div class='alert alert-warning text-center'>Nie można wypożyczyć książki, która nie jest dostępna.</div>";
+                $_SESSION['message'] = "<div class='alert alert-warning text-center' role = 'warning'>Nie można wypożyczyć książki, która nie jest dostępna.</div>";
             } else {
-                // Update the book's status to 'Wypożyczona'
                 $q = "UPDATE books SET Status = 'Wypożyczona' WHERE Title = '$title'";
                 $res = mysqli_query($conn, $q);
                 if($res){
@@ -38,15 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         } else {
-            // Book does not exist in the database
-            $_SESSION['message'] = "<div class='alert alert-info text-center'>Książka o podanym tytule nie istnieje</div>";
+            $_SESSION['message'] = "<div class='alert alert-warning text-center' role = 'warning'>Książka o podanym tytule nie istnieje</div>";
         }
     }
 
-    // Return a book
     $returnTitle = isset($_POST['return-title']) ? trim($_POST['return-title']) : '';
     if (!empty($returnTitle)) {
-        // Query the database to check the book's status
         $q2 = "SELECT Status FROM books WHERE Title = '$returnTitle'";
         $res2 = mysqli_query($conn, $q2);
 
@@ -54,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $row = mysqli_fetch_assoc($res2);
 
             if ($row['Status'] == 'Dostępna') {
-                $_SESSION['message'] = "<div class='alert alert-warning text-center'>Nie można zwrócić książki, która jest już dostępna</div>";
+                $_SESSION['message'] = "<div class='alert alert-warning text-center' role = 'warning'>Nie można zwrócić książki, która jest już dostępna</div>";
             } else {
                 $q = "UPDATE books SET Status = 'Dostępna' WHERE Title = '$returnTitle'";
                 $res = mysqli_query($conn, $q);
@@ -65,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         } else {
-            $_SESSION['message'] = "<div class='alert alert-danger text-center'>Książka o podanym tytule nie istnieje</div>";
+            $_SESSION['message'] = "<div class='alert alert-warning text-center' role = 'warning'>Książka o podanym tytule nie istnieje</div>";
         }
     }
 }
@@ -106,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h4>Lista dostępnych książek</h4>
             <ul class="list-group" id="book-list">
                 <?php
-                // working
                     $q = "SELECT * FROM Books WHERE Status = 'Dostępna'";
                     $res = mysqli_query($conn, $q);
                     if ($res && mysqli_num_rows($res) > 0){

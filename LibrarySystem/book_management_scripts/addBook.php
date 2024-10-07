@@ -2,7 +2,6 @@
 require_once('../db_conn.php');
 session_start();
 
-// Sprawdzanie, czy użytkownik jest zalogowany i czy jest pracownikiem
 if (!isset($_SESSION['user']) || !isset($_SESSION['is_employee']) || !$_SESSION['is_employee']) {
     header("Location: ../reader_dashboard.php");
     exit;
@@ -10,7 +9,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['is_employee']) || !$_SESSION[
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Pobierz dane z formularza
     $authorFirstName = isset($_POST['authorFirstName']) ? trim($_POST['authorFirstName']) : '';
     $authorLastName = isset($_POST['authorLastName']) ? trim($_POST['authorLastName']) : '';
     $authorNationality = isset($_POST['authorNationality']) ? trim($_POST['authorNationality']) : '';
@@ -22,15 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($authorFirstName) && !empty($authorLastName) && !empty($authorNationality) && !empty($authorBirthDay) &&
         !empty($bookTitle) && !empty($bookPages) && !empty($bookYear)) {
 
-        // Dodanie nowego autora
         $query = "INSERT INTO Author (FirstName, LastName, Nationality, Birth_Date) 
                   VALUES ('$authorFirstName', '$authorLastName', '$authorNationality', '$authorBirthDay')";
 
         if (mysqli_query($conn, $query)) {
-            // Pobierz ID nowo dodanego autora
             $authorID = mysqli_insert_id($conn);
 
-            // Dodanie nowej książki
             $query = "INSERT INTO Books (Title, Page_Count, Author_ID, Published_Year) 
                       VALUES ('$bookTitle', '$bookPages', '$authorID', '$bookYear')";
 
@@ -47,5 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-mysqli_close($conn); // Zamknięcie połączenia
+mysqli_close($conn); 
 ?>

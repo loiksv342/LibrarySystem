@@ -69,7 +69,7 @@ if (isset($_SESSION['message'])) {
     <h4 class="text-center">5 najnowszych książek w naszej bibliotece</h4>
     <div class="row">
         <?php
-        $query = "SELECT Title, Page_Count, Published_Year FROM books LIMIT 5"; // Adjusted to LIMIT 5 for consistency with your title
+        $query = "SELECT Title, Page_Count, Published_Year FROM books LIMIT 5";  
         $res = mysqli_query($conn, $query);
 
         if ($res && mysqli_num_rows($res) > 0) {
@@ -86,6 +86,7 @@ if (isset($_SESSION['message'])) {
             echo "<div class='col-12 text-center'>Brak dostępnych książek.</div>";
         }
         ?>
+        mysqli_close($conn);
     </div>
 </div>
 

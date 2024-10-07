@@ -41,10 +41,9 @@ $link = isset($_SESSION['is_employee']) && $_SESSION['is_employee'] ? '../librar
     <div class="card">
         <div class="card-body">
             <?php
-            // Wyświetlenie komunikatu, jeśli istnieje
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
-                unset($_SESSION['message']); // Usunięcie komunikatu po wyświetleniu
+                unset($_SESSION['message']); 
             }
             ?>
             <h4 class="card-title">Dane dotyczące autora:</h4>
