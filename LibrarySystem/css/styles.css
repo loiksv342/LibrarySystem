@@ -1,0 +1,300 @@
+/* przycisk wyloguj mnie */
+.log-out a {
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: var(--bs-navbar-brand-font-size);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.nav-item a{
+    color: #fff !important
+}
+.navbar-top li *{
+    color: #fff;
+}
+
+/* napis Biblioteka */
+.navbar-brand{
+    color: lightcyan !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #007bff !important;
+}
+
+.navbar-brand:active {
+    color: #0056b3;
+}
+
+.navbar-brand:visited {
+    color: #6c757d;
+}
+
+
+/* Welcome Title */
+
+.welcome-tab {
+    background-image: url(../images/booksWelcome.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid red; */
+}
+.welcome-tab .top-text {
+    text-align: center;
+    color: #fff;
+}
+.top-text span:nth-child(1) {
+    font-size: 20px;
+}
+.top-text span:nth-child(2) {
+    font-size: 15px;
+}
+.welcome-tab {
+    margin-top: 40px;
+    background-image: url(../images/booksWelcome.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid red; */
+    display: flex; /* Umożliwia użycie flexboxa */
+    align-items: center; /* Wyśrodkowuje pionowo */
+    justify-content: center; /* Wyśrodkowuje poziomo */
+}
+
+.welcome-tab .top-text {
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+}
+
+.top-text span:nth-child(1) {
+    font-size: 30px;
+}
+
+.top-text span:nth-child(2) {
+    font-size: 20px;
+}
+
+/* footer */
+.footer {
+    padding: 2rem 0;
+    background-color: #343a40;
+}
+
+.footer h5 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.footer p, .footer ul {
+    margin-bottom: 1rem;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer .text-center {
+    text-align: center;
+}
+
+.footer .text-white {
+    color: #fff;
+}
+footer {
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+    color: #fff;
+    padding: 2rem 0; 
+}
+
+.kontener {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.center {
+    display: flex; 
+    justify-content: center;
+    gap: 4rem; 
+    flex-wrap: wrap; 
+}
+
+.col-md-4 {
+    flex: 1;  
+    max-width: 300px; 
+}
+
+.text-center {
+    text-align: center;
+}
+
+.sliderText{
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 20px;
+    color: lightseagreen !important;
+}
+/* Przyciski i animacje */
+.mySlides {display: none}
+img {vertical-align: middle;width: 600px;height: 600px;}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+    .prev, .next, .text {font-size: 11px}
+}
+
+/* Nowe elementy */
+.announcement-banner {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.latest-books {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.latest-books h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.latest-books .book-item {
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.contact-form h4 {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form .btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.contact-form .btn:hover {
+    background-color: #0056b3;
+    transition: 0.5s;
+}
+.row{
+    display: flex !important;
+    justify-content: center !important;
+}
+.alert{
+    text-align: center;
+}

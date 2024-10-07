@@ -1,0 +1,76 @@
+/* Modified in 12.09.2024 */
+
+body {
+    background-color: lightskyblue !important;
+}
+
+h2.text-center {
+    border: 0 !important;
+    margin: 15px 15px !important; 
+    padding: 20px !important;
+    color: #008080 !important; 
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-body, .text-center, .card {
+    background-color: lightcyan !important;
+}
+
+button[type='submit']:hover {
+    background-color: #4CAF50 !important; 
+    border: 1px solid #4CAF50 !important;
+    transition: 0.5s !important;
+}
+
+.alert,.altert-danger {
+    text-align: center;
+}
+.text-center {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.btn-secondary {
+    background-color: #0d6efd;
+
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.buttons .btn {
+    flex: 1;
+    text-align: center;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff; /* Blue */
+    border-color: #007bff; /* Blue */
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #17a2b8; /* Teal */
+    border-color: #17a2b8; /* Teal */
+    color: #fff;
+}
+
+/* Hover Styles */
+.btn-primary:hover {
+    background-color: #0056b3 !important; /* Darker shade of blue */
+    border-color: #004085 !important; /* Even darker blue */
+    transition: background-color 0.5s, border-color 0.5s !important;
+}
+
+.btn-secondary:hover {
+    background-color: #138496 !important; /* Darker shade of teal */
+    border-color: #117a8b !important; /* Even darker teal */
+    transition: background-color 0.5s, border-color 0.5s !important;
+}
+
+
+
